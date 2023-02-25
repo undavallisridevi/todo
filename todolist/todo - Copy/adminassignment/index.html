@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Task Management</title>
+    <link rel="stylesheet" href="style.css">
+    
+  </head>
+  <body>
+    <!-- //<div style="display:flex ;justify-content: space-evenly;align-items: center;"> -->
+    <div class="container">
+      <h1>Task Assignment</h1>
+      <form>
+        <label for="task">Task:</label>
+        
+        <input type="text" id="task" name="task" required>
+        <label for="assignee">Assignee:</label>
+      
+          <input id="someinput" placeholder="select assingee" onclick="displayoptions();" ></br>
+    
+    <select class="select-user" style="display:none;" name="task" id="assignee" multiple="multiple">
+        <option>Frederiksberg</option>
+        <option>User 1</option>
+        <option>User 2</option>
+        <option>Brøndby</option>
+        <option>Roskilde</option>
+        <option>Køge</option>
+        <option>Gentofte</option>
+        <option>Hillerød</option>
+        <option>Tårnby</option>
+        <option>Vallensbæk</option>
+    </select>
+    
+    </br>
+    
+    
+    <select class="chosen-users" name="chosen-usernames" id="optlist1" multiple="multiple"></select>
+        
+        
+        <button type="button" id="addtask" >Add Task</button>
+      </form>
+    </div>
+    <br>
+    <center><input type="button" id="clickme" value="Show"  />
+    <br>
+      <div id="displaytable" class="table">
+       
+        <table id="displaytable2"  class="table2">
+          <thead>
+            <tr align="center" id="ttablehead">
+            
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+      
+      </div>
+    </center>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+    crossorigin="anonymous"></script>
+ 
+   <script src="script.js"></script>
+  </body>
+</html>

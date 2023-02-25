@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/style.css" />
+  <title>Draggable Todo App</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+</head>
+
+<body>
+  <!-- modal -->
+  <div class="modal" id="todo_form">
+    <div class="header">
+      <div class="title">Add Todo</div>
+      <button class="btn close-modal">&times;</button>
+    </div>
+    <div class="body">
+      <form id="form">
+        <input type="text" name="task" id="todo_input" required >
+        <label for="time">Enter Time</label>
+       
+        <input type="number" placeholder=" " name="time" id="time" required></br>
+        24hrs <input type="radio" onclick="hours();" name="24hrs" id="24hrs"> 
+  12hrs <input type="radio" onclick="hours();" name="24hrs" id="12hrs"></br>
+  <input id="username" type="text" name="username"  value="<%- username %> "  style="display:none">
+  
+  <div id="24hrclock" style="visibility:hidden">
+     <input type="time"  id="24hrsclock" onmouseout="addtotime();" >
+  </div>
+  <div id="12hrclock" style="visibility:hidden">
+    <label for="time-input">Select a time:</label>
+    <select id="dropdownhr" name="dropdown" >
+      <option value="" >Hour</option>
+    </select>
+    <select id="dropdownmin" name="dropdown">
+      <option value="">Minute</option>
+    </select>
+<select name="am-pm" id="am" onmouseout="addtotime()">
+  <option value="am" >AM</option>
+  <option value="pm">PM</option>
+</select>
+ </div>
+
+      </form>
+
+      <button id="todo_submit">Add Todo</button>
+    </div>
+  </div>
+  
+   
+
+  <div class="todo-container">
+    <button id="add_btn" data-target-modal="#todo_form">+Add your task</button>&nbsp;&nbsp;
+    <div class="status" id="no_status">
+      
+      <h1 id="addedtasks">Added tasks</h1>
+      
+
+
+<!-- 
+<% dat.forEach(function(user){%>
+  <%  if(user.id=="no_status"){ %>
+    <div class="todo"  draggable="true"   style="background-color:'<%= user.color %>'"><div><span><%- user.task %></span>@ <%- user.time %></div><span class="cross">&#x2716;</span></div>
+    
+  <% } %>
+
+  <%});%>
+      -->
+
+
+
+
+    </div>
+    <div class="status" id="pending">
+      <h1 id="pendingtasks">Pending</h1>
+      
+<!-- <% dat.forEach(function(user){%>
+  <%  if(user.id=="pending"){ %>
+    <div class="todo"  style="background-color:'<%= user.color %>'"  draggable="true"><div><span><%- user.task %></span>@ <%- user.time %></div><span class="cross">&#x2716;</span></div>
+    
+  <% } %>
+
+  <%});%> -->
+    </div>
+    <div class="status" id="inprogress">
+      <h1 id="progresstasks">Progress</h1>
+      
+<!-- <% dat.forEach(function(user){%>
+  <%  if(user.id=="inprogress"){ %>
+    <div class="todo"  style="background-color:'<%= user.color %>'"  draggable="true"><div><span><%- user.task %></span>@ <%- user.time %></div><span class="cross">&#x2716;</span></div>
+    
+  <% } %>
+
+  <%});%> -->
+    </div>
+    <div class="status" id="completed">
+      <h1 id="completedtasks">Completed</h1>
+<!--       
+<% dat.forEach(function(user){%>
+  <%  if(user.id=="completed"){ %>
+    <div class="todo"  style="background-color:'<%= user.color %>'"   draggable="true"><div><span><%- user.task %></span>@ <%- user.time %></div><span class="cross">&#x2716;</span></div>
+    
+  <% } %>
+
+  <%});%> -->
+    </div>
+   
+    <div class="status del" id="deleted">
+      <h1 id="deletedtasks">Deleted</h1>
+
+      &nbsp;&nbsp;<button id="show" onclick="display()" >show</button>
+      
+<!-- <% dat.forEach(function(user){%>
+  <%  if(user.id=="deleted"){ %>
+    <div class="todo" style="background-color:'<%= user.color %>'"  draggable="true"><div><span><%- user.task %></span>@ <%- user.time %></div><span class="cross">&#x2716;</span></div>
+    
+  <% } %>
+
+  <%});%> -->
+    </div>
+   
+  </div>
+
+  <div id="overlay"></div>
+
+  <script src="/script.js"></script>
+  <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
